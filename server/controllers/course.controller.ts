@@ -317,9 +317,9 @@ export const addReview=CatchAsyncError(async(req:Request,res:Response,next:NextF
             avg+=rev.rating;
         });
 
-        if(course){
-            course.ratings=avg/course.reviews.length; // 
-        }
+        // if(course){
+        //     course.ratings=avg/course.reviews.length; // 
+        // }
         await course?.save();
 
         
