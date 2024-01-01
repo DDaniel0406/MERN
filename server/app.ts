@@ -11,6 +11,9 @@ import orderRouter from "./routes/order.route";
 import notificationRouter from "./routes/notification.route";
 import analyticsRouter from "./routes/analytics.route";
 import layoutRouter from "./routes/layout.route";
+import connectDB from "./utils/db";
+import {v2 as cloudinary} from "cloudinary"
+import http from "http"
 
 //body parser
 
@@ -50,4 +53,16 @@ app.use(ErrorMiddleware);
 
 
 
+//cloudinary config
+cloudinary.config({
+    cloud_name:process.env.CLOUDINARY_NAME,
+    api_key:process.env.CLOUD_API_KEY,
+    api_secret:process.env.CLOUD_SECRET_KEY,
+})
 
+
+//create server
+app.listen(process.env.PORT,()=>{
+    console.log(`Server is connected with port ${process.env.PORT}`)
+    connectDB();
+});
