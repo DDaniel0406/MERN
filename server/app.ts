@@ -27,6 +27,7 @@ app.use(cookieParser())
 
 app.use(cors({
     origin:['https://mernstack-lms-soei.vercel.app'],
+    methods:["POST","PUT"],
     credentials:true,
 }));
 
