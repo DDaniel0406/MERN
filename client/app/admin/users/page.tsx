@@ -24,7 +24,7 @@ const page = (props: Props) => {
                 </div>
                 <div className='1500px:w-[85%]'>
                     <DashboardHero/>
-                    <AllUsers/>
+                    <AllUsers isTeam={true}/>
 
                 </div>
             </div>
