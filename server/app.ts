@@ -23,7 +23,7 @@ app.use(cookieParser())
 //cors=>cross origin resource sharing
 
 app.use(cors({
-    origin:['https://mernstack-lms.vercel.app'],
+    origin:['http://localhost:3000'],
     credentials:true,
 }));
 
