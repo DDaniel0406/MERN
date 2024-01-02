@@ -51,6 +51,7 @@ export const authApi=apiSlice.injectEndpoints({
                     email,
                     password
                 },
+                mode:  'cors',
                 headers:{
                     'content-type':'application/json',
                     'accept': 'application/json'
