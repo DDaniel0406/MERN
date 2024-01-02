@@ -51,6 +51,7 @@ export const authApi=apiSlice.injectEndpoints({
                     email,
                     password
                 },
+                headers: { "Access-Control-Allow-Origin": "*" },
                 credentials:"include" as const,
             }),
             async onQueryStarted(arg,{queryFulfilled,dispatch}){
