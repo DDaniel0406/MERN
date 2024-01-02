@@ -25,7 +25,7 @@ app.use(cookieParser())
 
 //cors=>cross origin resource sharing
 
-app.use(cors(
+app.use('*',cors(
     {
     origin:'https://mernstack-lms-soei.vercel.app/',
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
