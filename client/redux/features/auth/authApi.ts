@@ -51,7 +51,10 @@ export const authApi=apiSlice.injectEndpoints({
                     email,
                     password
                 },
-                headers: { 'Content-Type': 'application/json' },
+                headers:{
+                    'content-type':'application/json',
+                    'accept': 'application/json'
+                },
                 credentials:"include" as const,
             }),
             async onQueryStarted(arg,{queryFulfilled,dispatch}){
