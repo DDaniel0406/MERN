@@ -27,7 +27,7 @@ app.use(cookieParser())
 
 app.use('*',cors(
     {
-    origin:'https://mernstack-lms-soei.vercel.app/',
+    origin:'*',
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Origin', 'X-Requested-With', 'Accept', 'x-client-key', 'x-client-token', 'x-client-secret', 'Authorization'],
     credentials: true
@@ -40,7 +40,10 @@ app.use('*',cors(
 //     res.header("Access-Control-Allow-Methods", "GET, POST, DELETE");
 //     next()
 // })
-
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    next();
+  });
 //routes
 app.use("/api/v1",userRouter,orderRouter,courseRouter,notificationRouter,analyticsRouter,layoutRouter);
 
