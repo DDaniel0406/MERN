@@ -7,6 +7,7 @@ import socketIO from "socket.io-client"
 import {format} from "timeago.js"
 
 
+
 const ENDPOINT=process.env.NEXT_PUBLIC_SOCKET_SERVER_URI || "";
 const socketId=socketIO(ENDPOINT,{transports:["websocket"]})
 
@@ -23,27 +24,27 @@ const DashboardHeader:FC<Props> = ({open,setOpen}) => {
     const [updateNotificationStatus,{isSuccess}]=useUpdateNotificationStatusMutation();
     const [notifications,setNotifications]=useState<any>([])
 
-    const [audio]=useState(new Audio("https://res.cloudinary.com/damk25wo5/video/upload/v1693465789/notification_vcetjn.mp3"))
-    const playerNotificationSound=()=>{
-        audio.play()
-    }
-    useEffect(()=>{
-        if(data){
-            setNotifications(
-                data.notifications.filter((item:any)=>item.status==="unread")
-            )
-        }
-        if(isSuccess){
-            refetch()
-        }
-        audio.load()
-    },[data,isSuccess])
-    useEffect(()=>{
-        socketId.on("newNotification",(data)=>{
-            refetch()
-            playerNotificationSound()
-        })
-    },[]);
+    // const [audio]=useState(new Audio("https://res.cloudinary.com/damk25wo5/video/upload/v1693465789/notification_vcetjn.mp3"))
+    // const playerNotificationSound=()=>{
+    //     audio.play()
+    // }
+    // useEffect(()=>{
+    //     if(data){
+    //         setNotifications(
+    //             data.notifications.filter((item:any)=>item.status==="unread")
+    //         )
+    //     }
+    //     if(isSuccess){
+    //         refetch()
+    //     }
+    //     audio.load()
+    // },[data,isSuccess])
+    // useEffect(()=>{
+    //     socketId.on("newNotification",(data)=>{
+    //         refetch()
+    //         playerNotificationSound()
+    //     })
+    // },[]);
     const handleNotificationStatusChange=async(id:string)=>{
         await updateNotificationStatus(id)
     }
