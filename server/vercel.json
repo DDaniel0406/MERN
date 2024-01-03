@@ -42,7 +42,7 @@
             ]
           },
           {
-            "source": "https://mernstack-lms-soei.vercel.app",
+            "source": "https://mernstack-lms.vercel.app/api/v1/login",
             "headers": [
               { "key": "Access-Control-Allow-Origin", "value": "*" },
               { "key": "Access-Control-Allow-Headers", "value": "X-UserSession"}

@@ -43,34 +43,8 @@ app.use(options);
 //     res.header("Access-Control-Allow-Methods", "GET, POST, DELETE");
 //     next()
 // })
-const allowCors = (fn:any) => async (req:Request, res:Response) => {
-    res.setHeader(
-      "Access-Control-Allow-Origin",
-      "https://mernstack-lms.vercel.app"
-    );
-    res.setHeader(
-      "Access-Control-Allow-Methods",
-      "GET,OPTIONS,PATCH,DELETE,POST,PUT"
-    );
-    res.setHeader(
-      "Access-Control-Allow-Headers",
-      "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
-    );
-    if (req.method === "OPTIONS") {
-      res.status(204).end();
-      return;
-    }
-    return await fn(req, res);
-  };
-app.use((req, res, next) => {
-    if (req.method === "OPTIONS") {
-      res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET");
-      return res.status(200).json({});
-    }
-    next();
-  });
 
-app.post("/api/v1/login",allowCors(loginUser))
+//app.post("/api/v1/login",allowCors(loginUser))
 //routes
 app.use("/api/v1",userRouter,orderRouter,courseRouter,notificationRouter,analyticsRouter,layoutRouter);
 
