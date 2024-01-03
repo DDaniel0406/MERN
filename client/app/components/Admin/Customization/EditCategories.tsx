@@ -97,7 +97,7 @@ const EditCategories = (props: Props) => {
               })}
               <br/>
               <br/>
-              {/* <div
+              <div
                 className={`${
                     styles.button
                 } !w-[100px] !min-h-[40px] !h-[40px] dark:text-white text-black bg-[#cccccc34]
@@ -117,7 +117,7 @@ const EditCategories = (props: Props) => {
             
             >
                 Save
-            </div> */}
+            </div>
 
 
 

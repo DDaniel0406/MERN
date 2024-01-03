@@ -21,13 +21,7 @@ const Page = (props: Props) => {
     const [open,setOpen]=useState(false)
     const [courses,setCourses]=useState([])
     const [category,setCategory]=useState("All")
-    const [mounted, setMounted] = useState(false);
-    useEffect(() => {
-      setMounted(true);
-    }, []);
-    if (!mounted) {
-      return null; // return this null to avoid hydration errors
-    }
+
     useEffect(()=>{
         if(category==="All"){
             setCourses(data?.courses) 
@@ -37,7 +31,7 @@ const Page = (props: Props) => {
             )
         }
         if(search){
-            setCourses(data?.courses.filter((item:any)=>item?.name?.toLowerCase().includes(search.toLowerCase())))
+            setCourses(data?.courses.filter((item:any)=>item.name.toLowerCase().includes(search.toLowerCase())))
         }
     },[data,category,search])
 
@@ -73,8 +67,8 @@ const Page = (props: Props) => {
                             {
                                 categories && categories.map((item:any,index:number)=>(
                                     <div key={index}>
-                                        <div className={`h-[35px] ${category===item?.title ? "bg-[crimson]" : "bg-[#5050cb]"} m-3 px-3 rounded-[30px] flex items-center justify-center font-Poppins cursor-pointer`} onClick={()=>setCategory(item?.title)}>
-                                            {item?.title}
+                                        <div className={`h-[35px] ${category===item.title ? "bg-[crimson]" : "bg-[#5050cb]"} m-3 px-3 rounded-[30px] flex items-center justify-center font-Poppins cursor-pointer`} onClick={()=>setCategory(item.title)}>
+                                            {item.title}
                                         </div>
                                     </div>
                                 ))

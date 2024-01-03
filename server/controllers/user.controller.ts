@@ -19,7 +19,7 @@ interface IRegistrationBody{
     name:string;
     email:string;
     password:string;
-    avatar?:any;
+    avatar?:string;
 }
 
 export const registrationUser=CatchAsyncError(async(req:Request,res:Response,next:NextFunction)=>{
@@ -328,7 +328,7 @@ export const updateProfilePicture=CatchAsyncError(async(req:Request,res:Response
             if(user?.avatar?.public_id){
                 // first delete the old image
                 await cloudinary.v2.uploader.destroy(user?.avatar?.public_id);
-                const myCloud=await cloudinary.v2.uploader.upload(avatar?.avatar as any,{
+                const myCloud=await cloudinary.v2.uploader.upload(avatar?.avatar,{
                     folder:"avatars",
                     width:150,
                 });

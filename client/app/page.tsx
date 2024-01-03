@@ -1,5 +1,5 @@
 "use client"
-import React,{FC,useState,useEffect} from "react";
+import React,{FC,useState} from "react";
 import Heading from "./utils/Heading";
 import Header from "./components/Header";
 import Hero from "./components/Route/Hero"
@@ -17,13 +17,6 @@ const Page:FC<Props>=(props)=>{
   const [open,setOpen]=useState(false);
   const [activeItem,setActiveItem]=useState(0);
   const [route,setRoute]=useState("Login")
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-  if (!mounted) {
-    return null; // return this null to avoid hydration errors
-  }
   return(
     <div>
       <Heading
