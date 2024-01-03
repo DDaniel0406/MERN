@@ -83,7 +83,7 @@ const AllCourses = (props: Props) => {
         title:item.name,
         ratings:item.ratings,
         purchased:item.purchased,
-        created_at:format(item.createdAt)
+        // created_at:format(item.createdAt)
 
       })
 
