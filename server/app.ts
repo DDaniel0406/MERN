@@ -46,7 +46,7 @@ app.use(options);
 const allowCors = (fn:any) => async (req:Request, res:Response) => {
     res.setHeader(
       "Access-Control-Allow-Origin",
-      "https://mernstack-lms-soei.vercel.app"
+      "https://mernstack-lms.vercel.app"
     );
     res.setHeader(
       "Access-Control-Allow-Methods",
