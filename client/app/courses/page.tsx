@@ -31,7 +31,7 @@ const Page = (props: Props) => {
             )
         }
         if(search){
-            setCourses(data?.courses.filter((item:any)=>item.name.toLowerCase().includes(search.toLowerCase())))
+            setCourses(data?.courses.filter((item:any)=>item?.name?.toLowerCase().includes(search.toLowerCase())))
         }
     },[data,category,search])
 
