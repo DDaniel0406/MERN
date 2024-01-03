@@ -7,11 +7,11 @@ export const apiSlice=createApi({
     baseQuery:fetchBaseQuery({
         baseUrl:process.env.NEXT_PUBLIC_SERVER_URI,
         credentials: "same-origin", 
-        prepareHeaders: (headers) => {
-            headers.set('Access-Control-Allow-Origin', '*')
-            headers.set("Content-Type", "application/json");
-            return headers;
-        },
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Api-Key': 'my-api-key-from-api-gateway',
+            'Access-Control-Allow-Origin':"*"
+        }
     }),
     endpoints:(builder)=>({
         refreshToken:builder.query({
