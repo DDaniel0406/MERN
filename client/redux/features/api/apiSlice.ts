@@ -8,6 +8,7 @@ export const apiSlice=createApi({
         baseUrl:process.env.NEXT_PUBLIC_SERVER_URI,
         credentials: "same-origin", 
         prepareHeaders: (headers) => {
+            headers.set('Access-Control-Allow-Origin', '*')
             headers.set("Content-Type", "application/json");
             return headers;
         },
