@@ -28,8 +28,8 @@ app.use(cookieParser())
 
 const options = [
     cors({
-      origin: '*',
-      methods: '*',
+      origin: 'https://mernstack-lms-soei.vercel.app',
+      methods: ["GET,OPTIONS,PATCH,DELETE,POST,PUT" ],
       allowedHeaders: ['Content-Type', 'Authorization'],
       credentials: true,
     })
