@@ -53,9 +53,8 @@ const nextConfig = {
         },
         ]
     },
-    output: 'export',
-    transpilePackages: ['@internal/*']
-
+    images: { unoptimized: true },
+    experimental: { runtime: 'edge'}
 
 }
 
