@@ -67,8 +67,8 @@ const Page = (props: Props) => {
                             {
                                 categories && categories.map((item:any,index:number)=>(
                                     <div key={index}>
-                                        <div className={`h-[35px] ${category===item.title ? "bg-[crimson]" : "bg-[#5050cb]"} m-3 px-3 rounded-[30px] flex items-center justify-center font-Poppins cursor-pointer`} onClick={()=>setCategory(item.title)}>
-                                            {item.title}
+                                        <div className={`h-[35px] ${category===item?.title ? "bg-[crimson]" : "bg-[#5050cb]"} m-3 px-3 rounded-[30px] flex items-center justify-center font-Poppins cursor-pointer`} onClick={()=>setCategory(item?.title)}>
+                                            {item?.title}
                                         </div>
                                     </div>
                                 ))
