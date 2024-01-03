@@ -5,8 +5,18 @@ const nextConfig = {
     },
     eslint: { ignoreDuringBuilds: true },
     reactStrictMode: false,
+    env: {
+        GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
+        GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
+        GITHUB_CLIENT_ID: process.env.GITHUB_CLIENT_ID,
+        GITHUB_CLIENT_SECRET: process.env.GITHUB_CLIENT_SECRET,
+        SECRET: process.env.SECRET,
+        NEXT_PUBLIC_SOCKET_SERVER_URI: process.env.NEXT_PUBLIC_SOCKET_SERVER_URI,
+        
+
+    }, 
     async headers() {
-        return [
+        return [ 
         {
 
             source: "/api/v1/:path*",
