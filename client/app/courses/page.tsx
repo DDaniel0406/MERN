@@ -21,7 +21,13 @@ const Page = (props: Props) => {
     const [open,setOpen]=useState(false)
     const [courses,setCourses]=useState([])
     const [category,setCategory]=useState("All")
-
+    const [mounted, setMounted] = useState(false);
+    useEffect(() => {
+      setMounted(true);
+    }, []);
+    if (!mounted) {
+      return null; // return this null to avoid hydration errors
+    }
     useEffect(()=>{
         if(category==="All"){
             setCourses(data?.courses) 
