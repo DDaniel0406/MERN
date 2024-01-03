@@ -32,7 +32,13 @@
             ]
           },
           {
-            "source": "https://mernstack-lms.vercel.app/(.*)",
+            "source": "https://mernstack-lms-soei.vercel.app/(.*)",
+            "headers": [
+              { "key": "Access-Control-Allow-Origin", "value": "*" }
+            ]
+          },
+          {
+            "source": "https://mernstack-lms-soei.vercel.app",
             "headers": [
               { "key": "Access-Control-Allow-Origin", "value": "*" }
             ]
