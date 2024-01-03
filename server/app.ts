@@ -25,14 +25,16 @@ app.use(cookieParser())
 
 //cors=>cross origin resource sharing
 
-app.use('*',cors(
-    {
-    origin:'*',
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Origin', 'X-Requested-With', 'Accept', 'x-client-key', 'x-client-token', 'x-client-secret', 'Authorization'],
-    credentials: true
-}
-));
+const options = [
+    cors({
+      origin: '*',
+      methods: '*',
+      allowedHeaders: ['Content-Type', 'Authorization'],
+      credentials: true,
+    })
+  ];
+  
+app.use(options);
 // app.use((req,res,next)=>{
 //     console.log(req.path,req.method)
 //     res.header("Access-Control-Allow-Origin", "*");
