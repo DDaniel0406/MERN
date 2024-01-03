@@ -12,6 +12,7 @@ const nextConfig = {
         GITHUB_CLIENT_SECRET: process.env.GITHUB_CLIENT_SECRET,
         SECRET: process.env.SECRET,
         NEXT_PUBLIC_SOCKET_SERVER_URI: process.env.NEXT_PUBLIC_SOCKET_SERVER_URI,
+        NEXT_PUBLIC_SERVER_URI:process.env.NEXT_PUBLIC_SERVER_URI
         
 
     }, 
@@ -19,7 +20,7 @@ const nextConfig = {
         return [ 
         {
 
-            source: "/api/v1/:path*",
+            source: "/api/v1/",
             headers: [
             { key: "Access-Control-Allow-Credentials", value: "true" },
             { key: "Access-Control-Allow-Origin", value: "*" },

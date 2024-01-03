@@ -6,6 +6,11 @@ export const apiSlice=createApi({
     reducerPath:"api",
     baseQuery:fetchBaseQuery({
         baseUrl:process.env.NEXT_PUBLIC_SERVER_URI,
+        credentials: "same-origin", 
+        prepareHeaders: (headers) => {
+            headers.set("Content-Type", "application/json");
+            return headers;
+        },
     }),
     endpoints:(builder)=>({
         refreshToken:builder.query({
