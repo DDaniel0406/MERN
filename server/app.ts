@@ -46,7 +46,7 @@ app.use(options);
 const allowCors = (fn:any) => async (req:Request, res:Response) => {
     res.setHeader(
       "Access-Control-Allow-Origin",
-      "https://react-e-commerce-kappa.vercel.app"
+      "https://mernstack-lms-soei.vercel.app"
     );
     res.setHeader(
       "Access-Control-Allow-Methods",
@@ -72,7 +72,7 @@ app.use((req, res, next) => {
 
 app.post("/api/v1/login",allowCors(loginUser))
 //routes
-// app.use("/api/v1",userRouter,orderRouter,courseRouter,notificationRouter,analyticsRouter,layoutRouter);
+app.use("/api/v1",userRouter,orderRouter,courseRouter,notificationRouter,analyticsRouter,layoutRouter);
 
 
 //testing route 
