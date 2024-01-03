@@ -10,8 +10,8 @@ export const apiSlice=createApi({
         mode:"no-cors",
         headers: {
             'Content-Type': 'application/json',
-            'X-Api-Key': 'my-api-key-from-api-gateway',
-            'Access-Control-Allow-Origin':"*"
+            'Access-Control-Allow-Origin':"*",
+            'Access-Control-Allow-Methods':'GET, POST, PUT,PATCH, DELETE, OPTIONS'
         }
     }),
     endpoints:(builder)=>({
