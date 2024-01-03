@@ -14,6 +14,7 @@ import layoutRouter from "./routes/layout.route";
 import connectDB from "./utils/db";
 import {v2 as cloudinary} from "cloudinary"
 import http from "http"
+import { loginUser } from "./controllers/user.controller";
 
 //body parser
 
@@ -42,6 +43,25 @@ app.use(options);
 //     res.header("Access-Control-Allow-Methods", "GET, POST, DELETE");
 //     next()
 // })
+const allowCors = (fn:any) => async (req:Request, res:Response) => {
+    res.setHeader(
+      "Access-Control-Allow-Origin",
+      "https://react-e-commerce-kappa.vercel.app"
+    );
+    res.setHeader(
+      "Access-Control-Allow-Methods",
+      "GET,OPTIONS,PATCH,DELETE,POST,PUT"
+    );
+    res.setHeader(
+      "Access-Control-Allow-Headers",
+      "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
+    );
+    if (req.method === "OPTIONS") {
+      res.status(204).end();
+      return;
+    }
+    return await fn(req, res);
+  };
 app.use((req, res, next) => {
     if (req.method === "OPTIONS") {
       res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET");
@@ -49,8 +69,10 @@ app.use((req, res, next) => {
     }
     next();
   });
+
+app.post("/api/v1/login",allowCors(loginUser))
 //routes
-app.use("/api/v1",userRouter,orderRouter,courseRouter,notificationRouter,analyticsRouter,layoutRouter);
+// app.use("/api/v1",userRouter,orderRouter,courseRouter,notificationRouter,analyticsRouter,layoutRouter);
 
 
 //testing route 
