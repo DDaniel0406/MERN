@@ -7,6 +7,7 @@ export const apiSlice=createApi({
     baseQuery:fetchBaseQuery({
         baseUrl:process.env.NEXT_PUBLIC_SERVER_URI,
         credentials: "same-origin", 
+        mode:"no-cors",
         headers: {
             'Content-Type': 'application/json',
             'X-Api-Key': 'my-api-key-from-api-gateway',
