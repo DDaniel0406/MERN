@@ -62,7 +62,7 @@ module.exports = {
         },
         {
 
-            source: "/api/v1/login/:path*",
+            source: "/api/v1/login",
             headers: [
             { key: "Access-Control-Allow-Credentials", value: "true" },
             { key: "Access-Control-Allow-Origin", value: "*" },
