@@ -47,6 +47,11 @@
 // module.exports=nextConfig
 
 module.exports = {
+    images:{
+        domains:['res.cloudinary.com','randomuser.me'],
+    },
+    eslint: { ignoreDuringBuilds: true },
+    reactStrictMode: false,
     async headers() {
         return [
         {
